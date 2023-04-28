@@ -7,11 +7,15 @@ const people = [
   { name: 'Max', age: 19 },
 ];
 
+function adult(){
+  
+}
+
  function adult (people){
       let teen = []
-      for (let i = 0; i < people.length; i++) {
-          if(people[i].age >= 18){
-              teen.push(people[i].name)
+      for(p in people){
+          if(p.age >= 18){
+              teen.push(p.name)
           }
       }
       return teen
@@ -51,17 +55,18 @@ const students = [
   { name: 'Jim', scores: [70, 80, 75] },
   { name: 'Jill', scores: [85, 90, 84] },
 ];
-function averageStudents(students, score) {
-  const result = [];
-  for (const student of students) {
-    const averageScore = student.scores.reduce((a, b) => a + b) / student.scores.length;
-    if (averageScore >= score) {
-      result.push(student.name);
+function greatPerformers(){
+  const great=[]
+  for(s in students){
+    const sum = students.scores.reduce((a, b) => a + b);
+    const avgScore = (sum / s.scores. length);
+    if(avgScore>=85){
+      great.push(s.name)
     }
   }
-  return result;
+  return great
 }
-const result = averageStudents(students, 85);
+const result =greatPerformers(students);
 console.log(result);
 
 // Given an object representing a car, with properties for the make, model, year,
@@ -76,16 +81,14 @@ const car = {
     console.log(`Make: ${this.make}, Model: ${this.model}, Year: ${this.year}`);
   },
 };
+const date = new Date();
+const fullyear = date.getFullYear();
 
-const carAge = function(obj) {
-  obj.age = function() {
-     return fullyear - car.year
-  }
+function addAge(){
+  car.age= fullyear-year
+  return age
 }
-carAge(car)
-const date = new Date()
-const fullyear = date.getFullYear()
 console.log(car.age())
-console.log(car)
+
 
 
